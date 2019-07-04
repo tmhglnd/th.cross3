@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="th.cross3~">
+
+	<digest>
+		Split a signal in 3 bands and output the average amplitudes
+	</digest>
+
+	<description>
+		Use the th.cross3~ to get the average amplitude values from an audio signal over 3 different bands. the values are reported as signal from the last 3 outlets and reported as a list from the first outlet. Use the render bang from jit.world or qmetro to output the list of values. Or use the other 3 outlets to get the signal value for every band.
+	</description>
+
+	<!--METADATA-->
+	<metadatalist>
+		<metadata name="author">Timo Hoogland</metadata>
+		<metadata name="tag">thModules</metadata>
+		<metadata name="tag">msp</metadata>
+		<metadata name="tag">audio</metadata>
+		<metadata name="tag">cross</metadata>
+		<metadata name="tag">filter</metadata>
+		<metadata name="tag">visual</metadata>
+	</metadatalist>
+
+	<!--INLETS-->
+	<inletlist>
+		<inlet id="0" type="signal">
+			<digest>the audio signal to be analyzed</digest>
+		</inlet>
+	</inletlist>
+
+	<!--OUTLETS-->
+	<outletlist>
+		<outlet id="0" type="list">
+			<digest>a list of the amplitudes in three bands</digest>
+		</outlet>
+		<outlet id="1" type="signal">
+			<digest>the filtered output band 1</digest>
+		</outlet>
+		<outlet id="2" type="signal">
+			<digest>the filtered output band 2</digest>
+		</outlet>
+		<outlet id="3" type="signal">
+			<digest>the filtered output band 3</digest>
+		</outlet>
+	</outletlist>
+
+	<!--ARGUMENTS-->
+	<!--
+	<objarglist>
+		<objarg name="name" optional="1" type="float">
+			<digest>digest</digest>
+		</objarg>
+	</objarglist>
+	-->
+
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="signal">
+			<arglist>
+				<arg name="signal" optional="0" type="signal" />
+			</arglist>
+			<digest>
+				The signal to evaluate
+			</digest>
+			<description>
+				The signal to evaluate
+			</description>
+		</method>
+		<method name="bang">
+			<arglist>
+				<arg name="bang" optional="0" type="bang" />
+			</arglist>
+			<digest>
+				Report the list of bands from the signal
+			</digest>
+			<description>
+				Report the list of bands from the signal
+			</description>
+		</method>
+	</methodlist>
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+		<attribute name='freq' get='0' set='1' type='float' size='2' >
+			<digest>the crossover frequencies</digest>
+			<description>
+				Set the two frequency-points in Hz for the crossover filters. (default = 150 900)
+			</description>
+		</attribute>
+
+		<attribute name='slide' get='0' set='1' type='float' size='2' >
+			<digest>the slide up and down time</digest>
+			<description>
+				Set the slide time to logarithmically filter the amplitudes. The first value is the up-slide time and the second the down-slide time in milliseconds. (default = 5 500)
+			</description>
+		</attribute>
+
+		<attribute name='gain' get='0' set='1' type='float' size='1' >
+			<digest>gain the signal</digest>
+			<description>
+				Set the amount of gain for the signal. (default = 2)
+			</description>
+		</attribute>
+
+		<attribute name='offset' get='0' set='1' type='float' size='1' >
+			<digest>offset the amplitude bands</digest>
+			<description>
+				Set the offset to add a certain amount of signal so the lowest value is not 0. This can be helpful for visuals to make sure that the base-value is higher than 0. (default = 0)
+			</description>
+		</attribute>
+	</attributelist>
+
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="cross~"/>
+		<seealso name="snapshot~"/>
+		<seealso name="qmetro"/>
+		<seealso name="slide~"/>
+		<seealso name="abs~"/>
+		<seealso name="sig~"/>
+		<seealso name="jit.world"/>
+		<seealso name="jit.anim.node"/>
+	</seealsolist>
+
+</c74object>
