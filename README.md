@@ -1,6 +1,6 @@
 # th.cross3~
 
-**Download and donate on gumroad: https://gum.co/UPZMxU**
+**Please consider to download and donate via http://gumroad.com/tmhglnd**
 
 A Max Abstraction to get the average amplitude values from an audio signal over 3 different frequency bands.
 
@@ -23,5 +23,5 @@ For visuals it is desired to have an amplitude value for every frame. That is wh
 ```
 1. open terminal
 2. navigate to Max searchpath (eg. on MacOS cd ~/Documents/Max\ 8/Library)
-3. $ git clone https://github.com/tmhglnd/th.cross3-.git
+3. $ git clone https://github.com/tmhglnd/th.cross3.git
 ```
